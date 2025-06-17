@@ -72,7 +72,7 @@ const filterConfig: Record<string, {
   }
 }
 
-export default function FilterBar({ filters, onFilterChange, availableFilters }: FilterBarProps) {
+export function FilterBar({ filters, onFilterChange, availableFilters }: FilterBarProps) {
   const handleFilterUpdate = (filterKey: string, value: string) => {
     onFilterChange({ [filterKey]: value })
   }

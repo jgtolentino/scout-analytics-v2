@@ -18,7 +18,7 @@ interface PhilippinesMapProps {
   onRegionClick?: (regionCode: string) => void
 }
 
-export default function PhilippinesMap({ regions, selectedRegion, onRegionClick }: PhilippinesMapProps) {
+export function PhilippinesMap({ regions = [], selectedRegion, onRegionClick }: PhilippinesMapProps) {
   const mapRef = useRef<L.Map | null>(null)
   const containerRef = useRef<HTMLDivElement>(null)
 

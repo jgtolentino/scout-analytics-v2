@@ -1,70 +1,34 @@
 "use client";
-import { Line } from "react-chartjs-2";
-import {
-  Chart as ChartJS,
-  CategoryScale,
-  LinearScale,
-  PointElement,
-  LineElement,
-  Title,
-  Tooltip,
-  Legend,
-  Filler,
-} from 'chart.js';
-
-ChartJS.register(
-  CategoryScale,
-  LinearScale,
-  PointElement,
-  LineElement,
-  Title,
-  Tooltip,
-  Legend,
-  Filler
-);
 
 interface LineChartProps {
   labels: string[];
   values: number[];
+  title?: string;
 }
 
-export default function LineChart({ labels, values }: LineChartProps) {
+export function LineChart({ labels, values, title = "Revenue Trends" }: LineChartProps) {
+  const maxValue = Math.max(...values);
+  
   return (
-    <div className="line-chart-container w-full h-96">
-      <Line
-        options={{ 
-          responsive: true, 
-          maintainAspectRatio: false,
-          plugins: { 
-            legend: { display: false },
-            title: {
-              display: true,
-              text: 'Revenue Trends Over Time'
-            }
-          },
-          scales: {
-            y: {
-              beginAtZero: true,
-              ticks: {
-                callback: function(value) {
-                  return '₱' + Number(value).toLocaleString();
-                }
-              }
-            }
-          }
-        }}
-        data={{
-          labels,
-          datasets: [{
-            data: values,
-            tension: 0.4,
-            fill: true,
-            backgroundColor: 'rgba(59, 130, 246, 0.1)',
-            borderColor: 'rgb(59, 130, 246)',
-            borderWidth: 2,
-          }],
-        }}
-      />
+    <div className="w-full h-64 bg-white p-4 rounded-lg shadow">
+      <h3 className="text-lg font-semibold mb-4">{title}</h3>
+      <div className="h-48 flex items-end justify-between">
+        {values.map((value, index) => (
+          <div
+            key={index}
+            className="bg-blue-500 flex-1 mx-1 rounded-t"
+            style={{ height: `${(value / maxValue) * 100}%` }}
+            title={`${labels[index]}: ₱${value.toLocaleString()}`}
+          />
+        ))}
+      </div>
+      <div className="flex justify-between text-xs text-gray-500 mt-2">
+        {labels.map((label, index) => (
+          <span key={index}>{label}</span>
+        ))}
+      </div>
     </div>
   );
 }
+
+export default LineChart;
