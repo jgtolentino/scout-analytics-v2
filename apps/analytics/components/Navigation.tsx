@@ -2,6 +2,7 @@
 
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
+import { useState, useEffect } from 'react'
 
 const navigation = [
   { name: 'Dashboard', href: '/', icon: '📊' },
@@ -47,7 +48,7 @@ export function Navigation() {
           </div>
           <div className="flex items-center">
             <div className="text-sm text-gray-500">
-              Last updated: {new Date().toLocaleTimeString()}
+              <TimeDisplay />
             </div>
           </div>
         </div>
@@ -77,4 +78,27 @@ export function Navigation() {
       </div>
     </nav>
   )
+}
+
+function TimeDisplay() {
+  const [time, setTime] = useState<string>('')
+  const [mounted, setMounted] = useState(false)
+
+  useEffect(() => {
+    setMounted(true)
+    const updateTime = () => {
+      setTime(new Date().toLocaleTimeString())
+    }
+    
+    updateTime()
+    const interval = setInterval(updateTime, 1000)
+    
+    return () => clearInterval(interval)
+  }, [])
+
+  if (!mounted) {
+    return <span>Last updated: --:--:--</span>
+  }
+
+  return <span>Last updated: {time}</span>
 }
