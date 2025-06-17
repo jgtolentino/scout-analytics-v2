@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import './globals.css'
+import { Navigation } from '../components/Navigation'
 
 export const metadata: Metadata = {
   title: 'Scout Analytics',
@@ -15,7 +16,10 @@ export default function RootLayout({
     <html lang="en">
       <body>
         <div className="min-h-screen bg-gray-50">
-          {children}
+          <Navigation />
+          <main>
+            {children}
+          </main>
         </div>
       </body>
     </html>
