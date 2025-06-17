@@ -1,0 +1,120 @@
+metadata:
+  name: "TBWA Analytics Monorepo"
+  version: "4.0.0"
+  target_location: "/Users/tbwa/Desktop/repro"
+  description: "Production-grade monorepo blueprint for Scout Analytics with AI agents, E2E QA, and KPI parity validation"
+
+architecture:
+  monorepo_structure:
+    apps:
+      - scout-dashboard
+      - admin-portal
+      - mobile-app
+    packages:
+      - ui
+      - agents
+      - database
+      - utils
+    tools:
+      - build
+      - deploy
+      - testing
+    docs: true
+
+technology_stack:
+  frontend: ["Next.js 14", "React 18", "Tailwind CSS", "Shadcn/ui"]
+  backend: ["Next.js API Routes", "Prisma"]
+  database: ["Supabase", "Azure SQL"]
+  ci_cd: ["GitHub Actions", "Vercel"]
+  monorepo: ["Turborepo", "pnpm workspaces", "TypeScript"]
+
+deployment_strategy:
+  frontend: "Vercel"
+  backend: "Fly.io or Railway"
+  ci_cd_stages:
+    - install
+    - lint
+    - test
+    - build
+    - e2e
+    - deploy
+
+applications:
+  scout_dashboard:
+    pages:
+      - name: "Dashboard"
+        route: "/"
+        wireframe: "KPI Grid + Revenue Line + Channel Pie"
+        kpi_cards:
+          - { id: "revenue", title: "₱45.2M", change: "+12.3%", type: "positive" }
+          - { id: "orders", title: "12,450", change: "+15.1%", type: "positive" }
+          - { id: "aov", title: "₱3,632", change: "+5.3%", type: "positive" }
+          - { id: "growth", title: "+8.2%", change: "+2.1pp", type: "positive" }
+      - name: "Trends"
+        route: "/trends"
+        wireframe: "Line chart + Boxplot + Heatmap + Region map"
+      - name: "Products"
+        route: "/products"
+        wireframe: "Treemap + Substitution Sankey + SKU Table"
+      - name: "RetailBot"
+        route: "/retailbot"
+        wireframe: "Chat UI + Quick Actions + GPT hooks"
+      - name: "AI Assist"
+        route: "/ai-assist"
+        wireframe: "Full GPT-powered assistant with prompt memory"
+      - name: "Vibe Test"
+        route: "/vibe"
+        wireframe: "CLI-style validation logs + screenshot QA"
+
+    filters:
+      global_state: true
+      supported_filters: ["region", "category", "timeframe"]
+      persistence: "URL + global context"
+
+api_specification:
+  base_url: "/api/v1"
+  authentication:
+    type: "bearer"
+    header: "Authorization"
+  endpoints:
+    - path: "/analytics"
+      method: "GET"
+      parameters:
+        - { name: "region", type: "string", enum: ["all", "ncr", "cebu", "davao"] }
+        - { name: "timeframe", type: "string", enum: ["7d", "30d", "90d", "1y"] }
+        - { name: "category", type: "string" }
+      response: { revenue: number, orders: number, aov: number, growth: number }
+
+qa_strategy:
+  testing:
+    unit: { framework: "jest", coverage_threshold: 80 }
+    integration: { framework: "jest", coverage_threshold: 70 }
+    e2e: { framework: "playwright", coverage_threshold: 90 }
+  linting: { tool: "eslint", config: "strict" }
+  formatting: { tool: "prettier", config: "standard" }
+  type_checking: { tool: "typescript", strict_mode: true }
+  accessibility: { tools: ["axe-core", "lighthouse"], wcag_level: "AA" }
+
+e2e_validation_strategy:
+  runtime_verification:
+    kpi_value_validation: "exact_match"
+    layout_positioning: "bounding_box"
+    filter_state_management: "cross_page"
+  console_monitoring:
+    error_tolerance: "zero"
+    warning_threshold: 5
+    network_failure_detection: true
+  screenshot_validation:
+    baseline_generation: true
+    pixel_diff_threshold: 0.1
+    responsive_breakpoints: [320, 768, 1024, 1440, 1920]
+    cross_browser_testing: [chrome, firefox, safari, edge]
+  user_journey_testing:
+    critical_paths: true
+    filter_interactions: true
+    ai_agent_responses: true
+    data_consistency: true
+  tools:
+    - playwright
+    - percy
+    - lighthouse

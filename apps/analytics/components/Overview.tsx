@@ -24,24 +24,24 @@ export default function Overview() {
       
       <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
         <KpiCard 
-          title="Total Sales" 
-          value="₱2.5M" 
-          change="+12.5%" 
+          title="Revenue" 
+          value="₱45.2M" 
+          change="+12.3%" 
         />
         <KpiCard 
-          title="Products" 
-          value="1,234" 
-          change="+3.2%" 
+          title="Orders" 
+          value="12,450" 
+          change="+15.1%" 
         />
         <KpiCard 
-          title="Stores" 
-          value="567" 
-          change="+1.8%" 
+          title="AOV" 
+          value="₱3,632" 
+          change="+5.3%" 
         />
         <KpiCard 
           title="Growth" 
-          value="15.3%" 
-          change="+2.1%" 
+          value="+8.2%" 
+          change="+2.1pp" 
         />
       </div>
 
@@ -51,15 +51,15 @@ export default function Overview() {
           <div className="space-y-4">
             <div className="flex justify-between items-center">
               <span>Metro Manila</span>
-              <span className="text-green-600 font-semibold">₱890K (+15%)</span>
+              <span className="text-green-600 font-semibold">₱15.8M (+12%)</span>
             </div>
             <div className="flex justify-between items-center">
               <span>Cebu</span>
-              <span className="text-green-600 font-semibold">₱456K (+8%)</span>
+              <span className="text-green-600 font-semibold">₱8.2M (+8%)</span>
             </div>
             <div className="flex justify-between items-center">
               <span>Davao</span>
-              <span className="text-green-600 font-semibold">₱234K (+12%)</span>
+              <span className="text-green-600 font-semibold">₱6.1M (+6%)</span>
             </div>
           </div>
         </div>
@@ -77,7 +77,7 @@ export default function Overview() {
             </div>
             <div className="flex justify-between">
               <span>Monthly Revenue</span>
-              <span className="font-semibold">₱2.5M</span>
+              <span className="font-semibold">₱45.2M</span>
             </div>
           </div>
         </div>

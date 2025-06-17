@@ -1,0 +1,89 @@
+.
+├── apps
+│   └── analytics
+│       ├── app
+│       │   ├── api
+│       │   │   ├── analytics
+│       │   │   │   └── route.ts
+│       │   │   ├── health
+│       │   │   │   └── route.ts
+│       │   │   └── retailbot
+│       │   │       └── chat
+│       │   │           └── route.ts
+│       │   ├── consumers
+│       │   │   └── page.tsx
+│       │   ├── globals.css
+│       │   ├── layout.tsx
+│       │   ├── page.tsx
+│       │   ├── products
+│       │   │   └── page.tsx
+│       │   ├── retailbot
+│       │   │   └── page.tsx
+│       │   └── trends
+│       │       └── page.tsx
+│       ├── components
+│       │   ├── charts
+│       │   │   └── LineChart.tsx
+│       │   ├── Consumers.tsx
+│       │   ├── dashboard
+│       │   │   ├── FilterBar.tsx
+│       │   │   └── PhilippinesMap.tsx
+│       │   ├── KpiCard.tsx
+│       │   ├── Navigation.tsx
+│       │   ├── Overview.tsx
+│       │   ├── ProductMix.tsx
+│       │   ├── Trends.tsx
+│       │   └── ui
+│       │       ├── badge.tsx
+│       │       ├── button.tsx
+│       │       ├── card.tsx
+│       │       ├── input.tsx
+│       │       └── tabs.tsx
+│       ├── lib
+│       │   ├── dal.ts
+│       │   └── database.ts
+│       ├── next-env.d.ts
+│       ├── next.config.js
+│       ├── package.json
+│       ├── postcss.config.js
+│       ├── public
+│       │   └── favicon.ico
+│       ├── README.md
+│       ├── tailwind.config.js
+│       ├── tests
+│       └── tsconfig.json
+├── docs
+├── MIGRATION_REPORT.md
+├── package.json
+├── packages
+│   ├── charts
+│   │   ├── package.json
+│   │   └── src
+│   │       └── index.ts
+│   ├── data
+│   │   ├── package.json
+│   │   └── src
+│   │       └── index.ts
+│   └── ui
+│       ├── package.json
+│       └── src
+│           └── index.ts
+├── pnpm-lock.yaml
+├── pnpm-workspace.yaml
+├── tools
+│   └── scripts
+│       ├── enhance-current-with-v2.sh
+│       ├── migration-check.js
+│       ├── modified-setup-recycle-v2.sh
+│       ├── monorepo_end_state_specification.zip
+│       ├── monorepo-end-state-specification.yaml
+│       └── scout-claude-audit-kit
+│           ├── current-structure.txt
+│           ├── enhance-current-with-v2.sh
+│           ├── migration-check.js
+│           ├── modified-setup-recycle-v2.sh
+│           ├── monorepo-end-state-specification.yaml
+│           └── README.md
+└── turbo.json
+
+31 directories, 56 files

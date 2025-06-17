@@ -1,1 +1,6 @@
-{}
+{
+  "/vibe/page": "app/vibe/page.js",
+  "/consumers/page": "app/consumers/page.js",
+  "/page": "app/page.js",
+  "/ai-assist/page": "app/ai-assist/page.js"
+}

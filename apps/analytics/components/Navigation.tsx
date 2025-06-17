@@ -9,6 +9,8 @@ const navigation = [
   { name: 'Products', href: '/products', icon: '📦' },
   { name: 'Trends', href: '/trends', icon: '📈' },
   { name: 'RetailBot', href: '/retailbot', icon: '🤖' },
+  { name: 'AI Assist', href: '/ai-assist', icon: '✨' },
+  { name: 'Vibe Test', href: '/vibe', icon: '🧪' },
 ]
 
 export function Navigation() {
